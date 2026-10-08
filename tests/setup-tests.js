@@ -1,6 +1,6 @@
 let server;
 
-setup(function() {
+setup(function(done) {
   let students = [
     {"name" : "Steve", "email" : "steve@gmail.com"},
     {"name" : "Tina", "email" : "tina@yahoo.com"}
@@ -14,9 +14,9 @@ setup(function() {
   const studentsController = 
     require("../controllers/students-controller");
   studentsController.setup(app, students);
-  server.listen(8888);
+  server.listen(8888, done);
 });
 
-teardown(function() {
-  server.close();
+teardown(function(done) {
+  server.close(done);
 });
