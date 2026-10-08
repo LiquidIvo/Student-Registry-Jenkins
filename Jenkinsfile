@@ -4,7 +4,12 @@ pipeline{
     stages{
         stage("Install npm dependencies"){
             steps{
-                echo "========executing A========"
+               bat "npm install"
+            }
+            stage {
+                steps{
+                    bat "npm test"
+                }
             }
            
         }
